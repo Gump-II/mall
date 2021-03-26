@@ -1,7 +1,7 @@
 /conf
 /install
 /temp
-/vender
+/vendor
 **/upload/
 **/log/
 *.conf
