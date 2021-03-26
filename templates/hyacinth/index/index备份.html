@@ -1,0 +1,155 @@
+<?php include '../templates/hyacinth/common/header.html';?>
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" media="screen" type="text/css">
+<!--
+//                          _ooOoo_
+//                         o8888888o
+//                         88" . "88
+//                         (| ^_^ |)
+//                         O\  =  /O
+//                      ____/`---'\____
+//                    .'  \\|     |//  `.
+//                   /  \\|||  :  |||//  \
+//                  /  _||||| -:- |||||-  \
+//                  |   | \\\  -  /// |   |
+//                  | \_|  ''\---/''  |   |
+//                  \  .-\__  `-`  ___/-. /
+//                ___`. .'  /--.--\  `. . ___
+//              ."" '<  `.___\_<|>_/___.'  >'"".
+//            | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//            \  \ `-.   \_ __\ /__ _/   .-` /  /
+//      ========`-.____`-.___\_____/___.-`____.-'========
+//                           `=---='//
+//
+//            拦截插件累计拦截逗比攻击"3838438"次！
+//        .............................................
+//                  佛祖保佑         永无BUG
+//                                                               
+//                     江城子 . 程序员之歌
+// 
+//               十年生死两茫茫，写程序，到天亮。
+//                     千行代码，Bug何处藏。
+//               纵使上线又怎样，朝令改，夕断肠。           
+// 
+//               领导每天新想法，天天改，日日忙。
+//                    相顾无言，惟有泪千行。
+//               每晚灯火阑珊处，夜难寐，加班狂。
+//
+-->
+<div class="layui-container fly-marginTop fly-user-main">
+    <div class="layui-row">
+        <!-- 公告-->
+        <?php if(isset($config['notice']) AND $config['notice']):?>
+        <blockquote class="layui-elem-quote layui-text" style="background-color: #ffffff;">
+            <i class="layui-icon layui-icon-speaker"></i><?php echo $config['notice'];?>
+        </blockquote>
+        <?php endif;?>
+        <div class="layui-card layui-form-pane">
+
+            <div class="layui-card-header layui-hide-xs">商品列表
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0
+                }
+
+                #box {
+                    height: 18px;
+                    display: inline-block;
+                    overflow: hidden;
+                }
+            </style>
+            <i class="fa fa-bullhorn"></i>
+            <div id="box">
+                <ul id="ul1">
+                    <li><strong style="color:#f60;">3662334**@qq.com</strong>&nbsp购买了<a href="https://pay.ythero.com/product/25.html" style="color: #369;">&nbsp;026【毕设课设】基于单片机智能输液器监控系统....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                    <li><strong style="color:#f60;">toamstr**163.com</strong>&nbsp购买了<a href="https://pay.ythero.com/product/20.html" style="color: #369;">&nbsp;020【毕设课设】基于单片机模糊算法温度控....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                    <li><strong style="color:#f60;">2828122**ail.com</strong>&nbsp购买了<a href="https://pay.ythero.com/product/22.html" style="color: #369;">&nbsp;022【毕设课设】基于单片机三路信号故障诊断仿....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                    <li><strong style="color:#f60;">hyganyu**@qq.com</strong>&nbsp购买了<a href="https://pay.ythero.com/product/21.html" style="color: #369;">&nbsp;021【毕设课设】基于单片机汽车超声波防盗系统....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+
+                    <li><strong style="color:#f60;">HA*wei</strong>&nbsp购买了<a href="https://pay.ythero.com/product/17.html" style="color: #369;">&nbsp;017【毕设课设】基于单片机红外感应自动洗手....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                    <li><strong style="color:#f60;">183804**9920/strong>&nbsp购买了<a href="https://pay.ythero.com/product/14.html" style="color: #369;">&nbsp;014【毕设课设】基于单片机电烤箱系统仿真设计....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                    <li><strong style="color:#f60;">k**史蒂夫</strong>&nbsp购买了<a href="https://pay.ythero.com/product/12.html" style="color: #369;">&nbsp;012【毕设课设】基于单片机智能液位水位监测控制....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                    <li><strong style="color:#f60;">道服**wo</strong>&nbsp购买了<a href="https://pay.ythero.com/product/8.html" style="color: #369;">&nbsp;008【毕业设计】基于51单片机冰箱温度控制....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+               </ul>
+                </ul>
+                <ul id="ul2"></ul>
+            </div>
+            <div class="demoTable" style="float: right">
+                <div class="layui-inline">
+                    <input class="layui-input" name="id" id="demoReload" autocomplete="off" placeholder="请输入关键词">
+                </div>
+                <button class="layui-btn" data-type="reload" >搜索</button>
+            </div>
+            <script>
+                window.onload = roll(80);
+
+                function roll(t) {
+                    var ul1 = document.getElementById("ul1");
+                    var ul2 = document.getElementById("ul2");
+                    var box = document.getElementById("box");
+                    ul2.innerHTML = ul1.innerHTML;
+                    box.scrollTop = 0;
+                    var timer = setInterval(rollStart, t);
+                    box.onmouseover = function() {
+                        clearInterval(timer)
+                    }
+                    box.onmouseout = function() {
+                        timer = setInterval(rollStart, t);
+                    }
+                }
+
+                function rollStart() {
+                    if (box.scrollTop >= ul1.scrollHeight) {
+                        box.scrollTop = 0;
+                    } else {
+                        box.scrollTop++;
+                    }
+                }
+            </script>
+
+            </div>
+
+            <div class="layui-tab-brief layui-hide-md">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">商品列表</li>
+                    <li class=""><a href="/product/query">查询订单</a></li>
+                    <li class=""><a href="/product/about">关于我们</a></li>
+                </ul>
+            </div>
+
+            <div class="layui-card-body" id="prodcut_num">
+                <table class="layui-table" id="table" lay-filter="table"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="name">
+    <a href="/product/{{d.id}}.html">{{d.name}}</a>
+</script>
+<script type="text/html" id="auto">
+{{# if(d.auto >0){ }}
+    <span class="layui-badge layui-bg-green">自动发货</span>
+    {{# } else { }}
+        <span class="layui-badge layui-bg-gray">手工发货</span>
+        {{# } }}
+</script>
+<script type="text/html" id="qty">
+{{# if(d.stockcontrol >0){ }}
+    {{d.qty}}
+    {{# } else { }}
+        <span class="layui-badge layui-bg-gray">不限量</span>
+        {{# } }}
+</script>
+<script type="text/html" id="opt">
+{{# if(d.stockcontrol >0 && d.qty=="0"){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-disabled" href="javascript:;">购买</a>
+    {{# } else { }}
+        <a class="layui-btn layui-btn-warm layui-btn-xs" href="/product/{{d.id}}.html">购买</a>
+        {{# } }}
+</script>
+<div id="layerad" style="display: none;"><?php echo $config['layerad'];?></div>
+<!--引入公共底文件-->
+<?php include '../templates/hyacinth/common/footer.html';?>
+<script>
+    layui.use('product-list');
+</script>

@@ -1,0 +1,1030 @@
+﻿<?php include '../templates/hibiscus/common/header.html';?>
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<style type="text/css">
+    .jqzoom {
+        vertical-align: top;
+        border: 0;
+    }
+
+    .box {
+        width: 310px;
+        margin: 100px auto;
+    }
+
+    .tb-pic a {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .tb-pic a img {
+        vertical-align: middle;
+    }
+
+    .tb-pic a {
+        *display: block;
+        *font-family: Arial;
+        *line-height: 1;
+    }
+
+    .tb-thumb {
+        margin: 10px 0 0;
+        overflow: hidden;
+    }
+
+    .tb-thumb li {
+        background: none repeat scroll 0 0 transparent;
+        float: left;
+        height: 42px;
+        margin: 0 6px 0 0;
+        overflow: hidden;
+        padding: 1px;
+    }
+
+    .tb-s310,
+    .tb-s310 a {
+        height: 310px;
+        width: 310px;
+    }
+
+    .tb-s310,
+    .tb-s310 img {
+        max-height: 310px;
+        max-width: 310px;
+    }
+
+    .tb-s310 a {
+        *font-size: 271px;
+    }
+
+    .tb-s40 a {
+        *font-size: 35px;
+    }
+
+    .tb-s40,
+    .tb-s40 a {
+        height: 40px;
+        width: 40px;
+    }
+
+    .tb-booth {
+        border: 1px solid #CDCDCD;
+        position: relative;
+        z-index: 1;
+    }
+
+    .tb-thumb .tb-selected {
+        background: none repeat scroll 0 0 #C30008;
+        height: 40px;
+        padding: 2px;
+    }
+
+    .tb-thumb .tb-selected div {
+        background-color: #FFFFFF;
+        border: medium none;
+    }
+
+    .tb-thumb li div {
+        border: 1px solid #CDCDCD;
+    }
+
+    div.zoomDiv {
+        z-index: 999;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 200px;
+        height: 200px;
+        background: #ffffff;
+        border: 1px solid #CCCCCC;
+        display: none;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    div.zoomMask {
+        position: absolute;
+        background: url("/res/images/mask.png") repeat scroll 0 0 transparent;
+        cursor: move;
+        z-index: 1;
+    }
+
+    .msg-box {
+        display: inline-block;
+        font-size: 14px;
+        margin-right: 20px;
+        background: #eff0f1;
+        padding: 8px;
+        border-top-right-radius: 2em;
+        border-bottom-right-radius: 2em;
+
+    }
+
+    .red-box {
+        background-color: #F40 !important;
+        color: white !important;
+    }
+
+    .layui-rate {
+        padding: 0 !important;
+    }
+
+    .rate {
+        background: none !important;
+        padding: 0 !important;
+    }
+
+    .input-box {
+        width: 250px !important;
+    }
+
+    .tips-o {
+        padding: 4px 0;
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    @media (min-width: 769px) {
+        .page-btn {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .show-btn,
+        .detail-note {
+            display: none;
+        }
+
+        .msg-box {
+            display: block;
+            margin-top: 8px;
+            margin-right: 0;
+        }
+
+        .input-box {
+            width: 210px !important;
+        }
+
+        .tips-o {
+            text-align: left !important;
+        }
+    }
+
+    .ke-tips {
+        margin-top: 10px;
+        background: white;
+        padding: 10px 5px;
+        border: 1px solid #e6e6e6;
+        font-weight: bold;
+        color: #3C3C3C;
+    }
+
+    .buy-tip {
+        color: #F40;
+        margin-bottom: 15px;
+        border: 1px dashed black;
+        display: inline-block;
+        padding: 2px 6px;
+    }
+
+    .note-title {
+        font-weight: bold;
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+    .pro-link {
+        color: #009688;
+    }
+
+    .pro-link:hover {
+        text-decoration: underline;
+    }
+
+    .note-link {
+        color: #009688;
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+    .course-type {
+        position: absolute;
+        left: 15px;
+        top: 10px;
+        z-index: 10;
+        width: 48px;
+        height: 48px;
+        text-align: center;
+        background: linear-gradient(-45deg, transparent 50%, red 0) 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .course-text {
+        width: 34px;
+        height: 34px;
+        position: absolute;
+        -webkit-transform: rotate(-45deg) translateY(5px);
+        transform: rotate(-45deg) translateY(5px);
+        font-size: 14px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 500;
+        color: #fff;
+    }
+
+    .goodsdetail-container:hover .video-cover-con {
+        background: rgba(0, 0, 0, .5);
+    }
+
+    .goodsdetail-container:hover .video-mark {
+        display: none;
+    }
+
+    .video-cover-con {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .video-mark {
+        position: absolute;
+        font-size: 0;
+        width: 100%;
+        top: 12px;
+        left: 0px;
+        padding: 0 14px;
+        box-sizing: border-box;
+        z-index: 1000;
+    }
+
+    .goodslist-mobile {
+        align-items: center;
+        display: flex;
+    }
+
+    .layui-btn[disabled] {
+        background: white !important;
+    }
+
+    .author {
+        font-size: 12px;
+        color: #888;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        word-break: break-all;
+        border-bottom: 1px solid #f7f7f7;
+    }
+
+    .note-title {
+        margin: 25px 0 25px -10px;
+        padding: 5px 20px;
+        border-left: 4px solid #ed2d38;
+        background-color: #f7f7f7;
+        font-size: 16px;
+        line-height: 30px;
+        color: #ed2d38;
+        font-weight: 600;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
+
+
+    #box {
+        overflow: hidden;
+    }
+
+    .message-wrap {
+        line-height: 26px;
+        display: inline-block;
+        height: 28px;
+    }
+
+    .message-box {
+        overflow: hidden;
+        height: 24px;
+        margin-top: 8px;
+    }
+
+    .message-content {
+        color: #f60;
+        height: 24px;
+    }
+
+    .teacher-box {
+        margin: 20px 0 0 0;
+        padding: 0;
+        background-image: url(https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/bb.png);
+        background-repeat: repeat;
+        background-position: 50% 50%;
+        background-attachment: scroll;
+        background-size: auto;
+        opacity: 1;
+        transition: box-shadow .3s, border .3s, background-color .3s, color .3s;
+    }
+
+    .tea-card:hover {
+        box-shadow: 0 4px 12px 0px rgba(0, 0, 0, .1);
+    }
+
+    .tea-title {
+        margin-bottom: 15px;
+        font-size: 22px;
+        border-left: 4px solid red;
+        padding: 0 10px;
+    }
+
+    .profile {
+        margin: 12px;
+    }
+
+    .profile-img {
+        width: auto;
+        height: 88px;
+        border-radius: 50%;
+    }
+
+    .profile-title {
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    .profile-author {
+        color: #333333;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .profile-sub {
+        color: #e67e22;
+        font-size: 14px;
+    }
+
+    .profile-text {
+        text-align: justify;
+        line-height: 2;
+    }
+
+    .card-wrap {
+        padding: 10px 15px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 1px 16px rgb(204, 204, 204);
+    }
+
+    @media (max-width: 960px) {
+        .tea-card {
+            padding: 5px 0 !important;
+        }
+    }
+
+    .note-title-1 {
+        text-align:left;
+        margin-top:10px;
+    }
+
+    .note-img {
+        height: 100px;
+        margin-bottom: -20px;
+    }
+
+     .note-content {
+         padding: 0 20px;
+         display: flex;
+     }
+
+     .title-1 {
+         font-weight: bold;
+     }
+
+     .content-1 {
+         color: #666;
+         line-height: 20px;
+     }
+
+     .product-a {
+         color: #009688;
+     }
+
+     .product-a:hover {
+         border-bottom: 1px solid #009688;
+     }
+</style>
+
+<div class="layui-container  fly-user-main">
+    <div class="layui-card-header layui-hide-xs" style="padding:0">
+        <i class="fa fa-bullhorn">交易动态</i>
+        <div id="box" class="message-wrap">
+            <ul id="bobaodiv" class="message-box" onmouseover="BBScrollAmount=0" onmouseout="BBScrollAmount=1">
+                <li><span class="message-content">3662334**@qq.com</span>&nbsp<span style="color:#009688">2分钟前&nbsp</span>购买了<a href="/product/25.html" style="color: #369;">&nbsp;026【毕设课设】基于单片机智能输液器监控系统....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                <li><span class="message-content">toamstr**163.com</span>&nbsp<span style="color:#009688">5分钟前&nbsp</span>购买了<a href="/product/20.html" style="color: #369;">&nbsp;020【毕设课设】基于单片机模糊算法温度控....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                <li><span class="message-content">2828122**ail.com</span>&nbsp<span style="color:#009688">8分钟前&nbsp</span>购买了<a href="/product/22.html" style="color: #369;">&nbsp;022【毕设课设】基于单片机三路信号故障诊断仿....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                <li><span class="message-content">hyganyu**@qq.com</span>&nbsp<span style="color:#009688">11分钟前&nbsp</span>购买了<a href="/product/21.html" style="color: #369;">&nbsp;021【毕设课设】基于单片机汽车超声波防盗系统....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                <li><span class="message-content">HA*wei</span>&nbsp<span style="color:#009688">16分钟前&nbsp</span>购买了<a href="/product/17.html" style="color: #369;">&nbsp;017【毕设课设】基于单片机红外感应自动洗手....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                <li><span class="message-content">183804**9920</span>&nbsp<span style="color:#009688">25分钟前&nbsp</span>购买了<a href="/product/14.html" style="color: #369;">&nbsp;014【毕设课设】基于单片机电烤箱系统仿真设计....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                <li><span class="message-content">k**ytc@icloud.com</span>&nbsp<span style="color:#009688">34分钟前&nbsp</span>购买了<a href="/product/12.html" style="color: #369;">&nbsp;012【毕设课设】基于单片机智能液位水位监测控制....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                <li><span class="message-content">29**wo@126.com</span>&nbsp<span style="color:#009688">48分钟前&nbsp</span>购买了<a href="/product/8.html" style="color: #369;">&nbsp;008【毕业设计】基于51单片机冰箱温度控制....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                <li><span class="message-content">3630224**@qq.com</span>&nbsp<span style="color:#009688">51分钟前&nbsp</span>购买了<a href="/product/25.html" style="color: #369;">&nbsp;026【毕设课设】基于单片机智能输液器监控系统....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                <li><span class="message-content">tofei12**163.com</span>&nbsp<span style="color:#009688">9分钟前&nbsp</span>购买了<a href="/product/20.html" style="color: #369;">&nbsp;020【毕设课设】基于单片机模糊算法温度控....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+            </ul>
+            <ul id="ul2"></ul>
+        </div>
+    </div>
+
+    <div class="layui-card" style="background:white">
+        <div class="layui-card-body" style="border: 1px solid #ddd !important;padding:8px">
+            <fieldset class="layui-elem-field">
+                <legend>商品信息</legend>
+                <div class="layui-row">
+                    <div class="layui-col-xs12 layui-col-md4">
+                        <div class="layui-field-box">
+                            <p>
+                                <div class="course-type">
+                                    <div class="course-text">推荐</div>
+                                </div>
+                                <a href="<?php if(strlen($product['imgurl'])>0):?><?php echo $product['imgurl'];?><?else:?>/templates/hyacinth/images/noimg.jpg<?php endif;?>"><img height="380px" width="100%" src="<?php if(strlen($product['imgurl'])>0):?><?php echo $product['imgurl'];?><?else:?>/templates/hyacinth/images/noimg.jpg<?php endif;?>" alt="图片放大" rel="<?php if(strlen($product['imgurl'])>0):?><?php echo $product['imgurl'];?><?else:?>/templates/hyacinth/images/noimg.jpg<?php endif;?>" class="jqzoom" /></a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="layui-col-xs12 layui-col-md8">
+                        <div class="layui-field-box">
+                            <form class="layui-form layui-form-pane" method="post">
+                                <p><?php if(isset($product['auto']) AND ($product['auto']>0) ):?>
+                                    <span class="layui-badge layui-bg-green">自动发货</span>
+                                    <?php else:?><span class="layui-badge layui-bg-black">手工发货</span>
+                                    <?php endif;?>&nbsp;&nbsp;<span class="trade-goodname" style="word-break: break-all;"><?php echo $product['name'];?></span>
+                                </p>
+                                <div style="margin-top: 10px;">
+                                    <div class="msg-box red-box"><span class="fa fa-user-o"> 发布者：<?php echo $product['author'];?></span></div>
+                                    <div class="msg-box"><span class="fa fa-file-archive-o"> 类型：资料包</span></div>
+                                    <div class="msg-box"><span class="fa fa-calendar"> 最近修改：<span id="times"></span></span></div>
+                                    <div class="msg-box rate">热度：<span id="star"></span> </div>
+                                </div>
+                                <hr>
+                                <p class="trade-goodinfo">
+                                    <span style="color:#6c6c6c">价格：</span>
+                                    <span class="trade-price">¥ <?php echo $product['price'];?></span>
+                                    <?php if(isset($product['price_ori']) AND $product['price_ori']>0):?><span class="trade-price-ori">¥ <?php echo $product['price_ori'];?></span><?php endif;?>
+                                    <?php if(isset($product['price']) AND $product['price']>70):?><span>请作者吃一顿炸鸡</span><?php endif;?>
+                                    <?php if(isset($product['price']) AND $product['price']<70):?><span>请作者喝两杯奶茶</span><?php endif;?>
+                                </p>
+
+                                <?php if(strlen($pifa)>0):?>
+                                <p class="trade-youhui">
+                                    <span style="color:#6c6c6c">优惠：</span>
+                                    <span id="view-youhui" style="padding-top: -10px;height: 100%;cursor: pointer;margin-left: 5px;">查看批发优惠</span>
+                                </p>
+                                <?php endif;?>
+
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label" style="color: #6c6c6c;">数量：</label>
+                                    <div class="layui-input-inline input-box">
+                                        <input type="number" name="number" id="number" lay-verify="required|numberCheck" maxlength=10 value="1" placeholder="" autocomplete="off" class="layui-input">
+                                    </div>
+                                    <div class="layui-form-mid layui-word-aux layui-hide-xs">件&nbsp;(库存:<?php if($product['stockcontrol']>0):?><?php if($product['qty']>0):?><?php echo $product['qty'];?><?php else:?>缺货中<?php endif;?><?php else:?>不限量<?php endif;?>)</div>
+                                </div>
+                                <?php if($login):?>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">邮箱账户</label>
+                                    <div class="layui-input-inline input-box">
+                                        <input type="text" name="email" id="email" value="<?php echo $uinfo['email'];?>" readonly class="layui-input">
+                                    </div>
+                                    <div class="layui-form-mid layui-word-aux layui-hide-xs">资料及密钥接收邮箱地址</div>
+                                </div>
+                                <?php else:?>
+                                <?php if(isset($config['orderinputtype']) AND $config['orderinputtype'] == '2'):?>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">QQ：</label>
+                                    <div class="layui-input-inline input-box">
+                                        <input type="number" name="qq" id="qq" class="layui-input" required lay-verify="required|number">
+                                    </div>
+                                    <div class="layui-form-mid layui-word-aux layui-hide-xs">资料及密钥接收邮箱地址</div>
+                                </div>
+                                <?php else:?>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">邮箱账户</label>
+                                    <div class="layui-input-inline input-box">
+                                        <input type="text" name="email" id="email" class="layui-input" required lay-verify="required|email" placeholder="资料及密钥将自动发送到此邮箱">
+                                    </div>
+                                    <div class="layui-form-mid layui-word-aux layui-hide-xs"><span style="color: red;">*</span>请准确填写个人邮箱</div>
+                                </div>
+                                <?php endif;?>
+                                <?php endif;?>
+
+                                <?php if(isset($config['querycontactswitch']) AND $config['querycontactswitch']>0):?>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">查询密码</label>
+                                    <div class="layui-input-inline input-box">
+                                        <input type="text" name="chapwd" id="chapwd" class="layui-input" required lay-verify="required" placeholder="将作为自助查询订单的重要依据">
+                                    </div>
+                                    <div class="layui-form-mid layui-word-aux layui-hide-xs"><span style="color: red;">*</span>建议和邮箱保持一致</div>
+                                </div>
+                                <?php endif;?>
+
+                                <?php if(!empty($addons)):?>
+                                <?php foreach($addons AS $key=>$addon):?>
+                                <?php if($addon):?>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label"><?php echo $addon;?></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="addons[]" id="addons<?php echo $key;?>" class="layui-input" required lay-verify="required" placeholder="">
+                                    </div>
+                                </div>
+                                <?php endif;?>
+                                <?php endforeach;?>
+                                <?php endif;?>
+
+                                <div class="layui-form-item">
+                                    <div class="buy-tip">购买说明：购买后，资料包和解压密码将自动发送到您邮箱</div>
+                                    <div class="layui-input-block" style="margin-left:0">
+                                        <input type="hidden" name="price" id="price" readonly disabled value="<?php echo $product['price'];?>">
+                                        <input type="hidden" name="qty" id="qty" readonly disabled value="<?php if($product['stockcontrol']>0):?><?php if($product['qty']>0):?><?php echo $product['qty'];?><?php else:?>库存不足<?php endif;?><?php else:?>不限量<?php endif;?>">
+                                        <input type="hidden" name="stockcontrol" id="stockcontrol" value="<?php echo $product['stockcontrol'];?>">
+                                        <input type="hidden" name="limitorderqty" id="limitorderqty" value="<?php echo $config['limitorderqty'];?>">
+                                        <input type="hidden" name="pid" id="pid" value="<?php echo $product['id'];?>">
+                                        <button class="layui-btn fa fa-cart-plus" id="buy" lay-submit lay-filter="buy" <?php if($product['stockcontrol']>0 AND $product['qty']<1):?>disabled="disabled" <?php endif;?>> 立即购买</button>
+                                        <button type="reset" class="layui-btn layui-btn-primary fa fa-refresh"> 重置</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+  
+   <div class="layui-card detail-note" style="background:white">
+       <div class="layui-card-body" style="border: 1px solid #ddd !important;padding:8px">
+           <div class="layui-row">
+               <div class="layui-col-md3 tips-o" style="text-align:center">
+                   <div class="note-content">
+                       <div >
+                           <img src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/note1.png" class="note-img">
+                       </div>
+                       <div class="note-title-1">
+                           <div class="title-1">设计完善</div>
+                           <div class="content-1">每个设计作品的完成都付出了发布者大量心血，设计完善</div>
+                       </div>
+
+                   </div>
+               </div>
+               <div class="layui-col-md3 tips-o" style="text-align:center">
+                   <div class="note-content" style="border-left: 1px solid #eee;">
+                       <div >
+                           <img src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/note2.png" class="note-img">
+                       </div>
+                       <div class="note-title-1">
+                           <div class="title-1">严格审核</div>
+                           <div class="content-1">设计的发布经过了严格的审核，以保证每个设计都无错</div>
+                       </div>
+
+                   </div>
+               </div>
+
+               <div class="layui-col-md3 tips-o" style="text-align:center">
+                   <div class="note-content" style="border-left: 1px solid #eee;">
+                       <div>
+                           <img src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/note3.png" class="note-img">
+                       </div>
+                       <div class="note-title-1">
+                           <div class="title-1">资料详情</div>
+                           <div class="content-1">设计包中包含完整的资料，基础资料包含原理图和源程序</div>
+                       </div>
+
+                   </div>
+               </div>
+               <div class="layui-col-md3 tips-o" style="text-align:center">
+                   <div class="note-content" style="border-left: 1px solid #eee;">
+                       <div >
+                           <img src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/note4.png" class="note-img">
+                       </div>
+                       <div class="note-title-1">
+                           <div class="title-1">自动发货</div>
+                           <div class="content-1">本平台是自动发货，购买后将资料自动发送到您的邮箱</div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+
+
+    <div class="layui-card" style="background:white">
+        <div class="layui-card-body" style="border: 1px solid #ddd !important;padding:8px">
+            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+
+
+                <div class="note-title" style="margin: 0 0 25px -10px;">设计说明</div>
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <div class="note-box">
+                            <div style="font-weight: bold;">资料说明（免费预览）</div>
+                            <div style="font-size: 15px; line-height: 30px;"><img src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/pdf.png" style="height: 30px;"><a target="_blank" class="pro-link" href="https://gytblog.oss-accelerate.aliyuncs.com/faka/note/<?php echo $product['id'];?>.pdf"> <?php echo $product['name'];?>-说明文档</a></div>
+                            <div>描述：本文档为此设计的简要说明</div>
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <div class="note-box">
+                            <div style="font-weight: bold;">资料压缩包（付费下载）</div>
+                            <div class="download" style="font-size: 15px; line-height: 30px; cursor:pointer"><img src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/winrar.jpg" style="height: 30px;"><a class="product-a"><?php echo $product['name'];?>.zip</a></div>
+                            <div>描述：本资料为整个设计资料压缩包，<span style="color:red">购买后自动发送邮箱</span></div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div><i class="layui-icon layui-icon-speaker"></i><span style="margin:10px 0">本平台商品均可正常购买，无需登录即可购买，购买后资料自动发送到邮箱（<span style="font-weight:bold;color:red">请正确填写邮箱地址和牢记查询密码</span>）</span></div>
+
+
+                <div class="note-title">文字描述</div>
+                <div class="layui-tab-item layui-show" style="font-size: 15px; line-height: 30px;">
+                    <?php if(isset($product['description'])):?><?php echo htmlspecialchars_decode(htmlspecialchars_decode($product['description']));?><?php endif;?>
+                </div>
+                <div>
+                    <div class="note-title">获取步骤</div>
+                    <div style="text-align: center;"> <img src="/res/images/bz.png" width="100%"> </div>
+                </div>
+                <div>
+                    <div class="note-title">猜你喜欢</div>
+                    <div class="layui-row">
+                        <div class=" layui-col-md6 layui-col-xs6" style="text-align:left"><button type="button" class="layui-btn layui-btn-primary page-btn" id="left" style="border:none"><i class="layui-icon"></i>左翻页</button></div>
+                        <div class=" layui-col-md6 layui-col-xs6" style="text-align:right"><button type="button" class="layui-btn layui-btn-primary page-btn layui-col-md6" id="right" style="border:none">右翻页<i class="layui-icon"></i></button></div>
+                    </div>
+                    <div class="goodslist-mobile layui-row">
+                        <div class="layui-col-md1 show-btn" style="text-align:center"><button type="button" class="layui-btn layui-btn-primary" id="left" style="border:none"><i class="layui-icon"></i></button></div>
+                        <div class="layui-col-md10">
+                            <div class="layui-row product-list-two-view" id="product-list-two-view"></div>
+                        </div>
+                        <div class="layui-col-md1 show-btn" style="text-align:center"><button type="button" class="layui-btn layui-btn-primary" id="right" style="border:none"><i class="layui-icon"></i></button></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="teacher-box">
+    <div class="layui-container fly-marginTop fly-user-main" style="min-height:0">
+        <div class="tea-title">电子设计专家</div>
+        <div class="layui-row layui-col-space1">
+            <div class="layui-col-md3 tea-card tea1" style="padding-right:10px">
+                <div class="card-wrap">
+                    <div style="color:#777777"><span class="profile-text">在这里会持续给大家提供电子工程师/学生最常用的电子DIY设计资料，最专业也是最完善的资料。每个资料将会通过我们团队认真审核，审核通过才发布到本平台，供大家学习参考。</span></div>
+                    <div class="profile">
+                        <div style="display:inline-block">
+                            <img src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/1.jpg" class="profile-img">
+                        </div>
+                        <div class="profile-title">
+                            <p class="profile-author">Aiesst MO</p>
+                            <p class="profile-sub">汇智园创始人</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3 tea-card tea2"  style="padding:0 10px">
+                <div class="card-wrap">
+                    <div style="color:#777777"><span class="profile-text">博文教育创始人、Altium原厂特聘讲师、10年高速pcb设计实战经验、与Altium官方合作出版Altium Designer20 PCB设计基础指南一书，电子科技大学座客教授，汇智园平台顾问专家。</span></div>
+                    <div class="profile">
+                        <div style="display:inline-block">
+                            <img src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/2.jpg" class="profile-img">
+                        </div>
+                        <div class="profile-title">
+                            <p class="profile-author">吴雨杰</p>
+                            <p class="profile-sub">博文教育创始人</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3 tea-card tea3" style="padding:0 10px">
+                <div class="card-wrap">
+                    <div style="color:#777777"><span class="profile-text">西安电子科技大学机器人创新实验室团队，研究方向：计算机视觉算法、嵌入式开发等，他们曾在IEEE和的国际会议上发表论文五篇，全国研究生创“芯”大赛获得一等奖，为汇智园平台提供技术支持。</span></div>
+                    <div class="profile">
+                        <div style="display:inline-block">
+                            <img src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/3.jpg" class="profile-img">
+                        </div>
+                        <div class="profile-title">
+                            <p class="profile-author">机器人创新团队</p>
+                            <p class="profile-sub">西安电子科技大学</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3 tea-card tea3" style="padding-left:10px">
+                <div class="card-wrap">
+                    <div style="color:#777777"><span class="profile-text">电子科技大学无线传感实验室团队，团队曾在多个国家级电子设计大赛中获得冠军、亚军等荣誉，多个成员保送至清华大学读硕、攻博，他们在汇智园平台发布了多个完善的设计作品，供大家学习参考。</span></div>
+                    <div class="profile">
+                        <div style="display:inline-block">
+                            <img src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/4.jpg" class="profile-img">
+                        </div>
+                        <div class="profile-title">
+                            <p class="profile-author">无线传感团队</p>
+                            <p class="profile-sub">电子科技大学</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+	<div class="ke-tips">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <span>版权声明</span>
+                    <span style="vertical-align: text-bottom;color:#999">汇智园平台所有的设计版权均归发布者所有，购买后仅供个人使用，严禁未取得作者版权后在网上传播。如平台资料有侵权，可向平台提供完善的侵权信息，平台核实后将第一时间进行处理。投诉邮箱：aaplforth@outlook.com</span>
+                </div>
+    </div>
+</div>
+
+
+<?php if(strlen($pifa)>0):?>
+<?php endif;?>
+<!--引入公共底文件-->
+<?php include '../templates/hibiscus/common/footer.html';?>
+<script type="text/javascript" src="/res/zoom/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/res/zoom/jquery.imagezoom.min.js"></script>
+<!--首页广告-->
+<script>
+layui.use('product');
+var PASSWORD_PRODUCT = 0;
+<?php if(strlen($pifa)>0):?>
+var PIFA = <?php echo $pifa;?>;
+<?php else:?>
+var PIFA = "";
+<?php endif;?>
+</script>
+
+
+<script id="product_list_two_tpl" type="text/html">
+{{# if(d.data.length === 0){ }}
+    {{# }else{ }}
+        {{# layui.each(d.data, function(index, item){ }}
+            <div class="layui-col-md2 layui-col-sm6 goodsdetail" style="padding:5px">
+                <a href="/product/{{item.id}}.html">
+                    <div class="goodsdetail-container">
+                        <div class="goodsdetail-img">
+	<div class="video-cover-con">
+		<div class="video-mark">
+			<svg width="24" height="24" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="web切片" transform="translate(-911.000000, -490.000000)"><g id="Group" transform="translate(911.000000, 490.000000)"><circle id="Oval-8" fill="#000000" cx="30" cy="30" r="30"></circle><polygon id="Rectangle-7-Copy" fill="#F7F7F7" points="21.5625 17.8125 38.4375 17.8125 38.4375 42.1875 30 35.5397727 21.5625 42.1875"></polygon></g></g></g></svg><div class="list-tags">
+		</div>
+		</div>
+	</div>
+                            {{# if(item.imgurl.length === 0){ }}
+                                <img src="/res/images/noimg.jpg">
+                                {{# }else{ }}
+                                    <img src="{{ item.imgurl}}">
+                                    {{# } }}
+                                        <div class="review">
+                                            <span class="msg" id="msgContent">{{ item.description}}</span>
+                                        </div>
+                        </div>
+
+                        <div class="goodsdetail-text">
+                            <!-- 第一行 -->
+		<div class="author"><i class="fa fa-user-o" aria-hidden="true"></i> 发布者：{{ item.author}}</div>
+                            <div class="row">
+                                
+		<p class="price">￥{{ item.price}}</p>
+                                <div class="kucun">{{ item.qty_sell}}人付款</div>
+                            </div>
+
+                            <div class="title" style="font-size:12px">
+                                {{ item.name}}
+                            </div>
+
+                            <div class="biaozhi">
+                                {{# if(item.auto=="1"){ }}
+		  
+                                    <span class="layui-badge layui-bg-green">自动发货</span>
+                                    {{# }else{ }}
+                                        <span class="layui-badge layui-bg-black">手工发货</span>
+                                        {{# } }}
+
+                                            {{# if(item.iszhekou=="1"){ }}
+                                                <span class="layui-badge layui-bg-orange">有折扣</span>
+                                                {{# } }}
+                                                    <span class="layui-badge layui-bg-blue commodity-type">{{ item.typeid}}</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {{# }); }}
+                {{# } }}
+</script>
+<script id="product_list_two_mobile_tpl" type="text/html">
+{{# if(d.data.length === 0){ }}
+    {{# }else{ }}
+        {{# layui.each(d.data, function(index, item){ }}
+            <div class="layui-col-md3 layui-col-sm4 goodsdetail">
+                <div class="goodsdetail-mobile">
+                    <div class="goodsdetail-mobile-img">
+                        <a href="/product/{{item.id}}.html">
+                            {{# if(item.imgurl.length === 0){ }}
+                                <img src="/res/images/noimg.jpg">
+                                {{# }else{ }}
+                                    <img src="{{ item.imgurl}}">
+                                    {{# } }}
+                        </a>
+                    </div>
+                    <div class="goodsdetail-mobile-text">
+                         <div class="row">
+                                <div class="author" style="display:inline-block;">发布者：{{ item.author}}</div>
+                                <div class="kucun" style="float:right;font-size: 12px; color: #888;">{{ item.qty_sell}}人付款</div>
+                         </div>
+                        <p class="title" style="color:black">{{ item.name}}</p>
+                        <p class="biaozhi">
+                            {{# if(item.auto=="1"){ }}
+		<p class="price">￥{{ item.price}}</p>
+                                <span class="layui-badge layui-bg-green">自动发货</span>
+                                {{# }else{ }}
+                                    <span class="layui-badge layui-bg-black">手工发货</span>
+                                    {{# } }}
+
+                                        {{# if(item.iszhekou=="1"){ }}
+                                            <span class="layui-badge layui-bg-orange">有折扣</span>
+                                            {{# } }}
+                                                <span class="layui-badge layui-bg-blue commodity-type" >{{ item.typeid}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {{# }); }}
+                {{# } }}
+</script>
+
+<script>
+    layui.use('product-detail');
+</script>
+
+
+<script>
+    let oMarquee; //播报的容器
+    let BBLineH = 26; //单行高度，像素
+    let BBScrollAmount = 1; //每次滚动高度，像素
+    let BBLineCount = 6; //当前这批数据 实际行数
+    let rollRestTime = 1000; //一条新播报滚动完成后，距离下一次滚动的间隔时间 单位ms
+    let rollTime = 10; //播报滚动中的刷新时间 单位ms
+
+    /*
+     * 启动播报滚动事件
+     */
+    window.onload = function() {
+        BBAllTime = 0;
+        oMarquee = document.getElementById("bobaodiv"); //滚动对象
+        window.setTimeout("run()", rollRestTime);
+    }
+
+    /*
+     * 播报滚动事件主逻辑
+     */
+    function run() {
+        if (BBScrollAmount == 0) { //若单次滚动的距离为0，则开始下一次监听，不计数
+            window.setTimeout("run()", rollTime);
+            return;
+        }
+        if (oMarquee.scrollTop >= BBLineCount * BBLineH) { //滚动完一次数据后，复位
+            oMarquee.scrollTop = 0;
+        }
+        oMarquee.scrollTop += BBScrollAmount;
+        if (oMarquee.scrollTop % BBLineH < 1 && oMarquee.scrollTop > 0) {
+            window.setTimeout("run()", rollRestTime);
+        } else {
+            window.setTimeout("run()", rollTime);
+        }
+    }
+
+</script>
+
+
+
+<script>
+    function changeTwoDecimal_html(x) {
+        var f_x = parseFloat(x);
+        if (isNaN(f_x)) {
+            alert('function:changeTwoDecimal->parameter error');
+            return false;
+        }
+        var f_x = Math.round(x * 100) / 100;
+        var s_x = f_x.toString();
+        var pos_decimal = s_x.indexOf('.');
+        if (pos_decimal < 0) {
+            pos_decimal = s_x.length;
+            s_x += '.';
+        }
+        while (s_x.length <= pos_decimal + 2) {
+            s_x += '0';
+        }
+        return s_x;
+    }
+</script>
+<script id="youhui_tpl" type="text/html">
+{{# if(d.length === 0){ }}
+    <blockquote class="layui-elem-quote">无数据....</blockquote>
+    {{# }else{ }}
+        {{# var price = <?php echo $product['price'];?>  }}
+            <div class="layui-card">
+                <div class="layui-card-header">折扣信息</div>
+                <div class="layui-card-body">
+                    <div class="layui-form">
+                        <table class="layui-table">
+                            <colgroup>
+                                <col width="150">
+                                <col width="150">
+                                <col width="200">
+                                <col width="200">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>数量</th>
+                                    <th>折扣</th>
+                                    <th>原价</th>
+                                    <th>折扣价</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{# layui.each(d, function(index, item){ }}
+                                    <tr>
+                                        <td>{{ item.qty}}</td>
+                                        <td>{{ item.discount}}</td>
+                                        <td>{{ changeTwoDecimal_html(price*item.qty)}}元</td>
+                                        <td>{{ changeTwoDecimal_html(price*item.qty*item.discount)}}元</td>
+                                    </tr>
+                                    {{# }); }}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {{# } }}
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $(".jqzoom").imagezoom();
+
+        $("#thumblist li a").click(function() {
+            $(this).parents("li").addClass("tb-selected").siblings().removeClass("tb-selected");
+            $(".jqzoom").attr('src', $(this).find("img").attr("mid"));
+            $(".jqzoom").attr('rel', $(this).find("img").attr("big"));
+        });
+
+    });
+
+    //热度
+    layui.use(['rate'], function() {
+        var rate = layui.rate;
+        rate.render({
+            elem: '#star',
+            value: 4.5,
+            half: true,
+            theme: '#F40',
+            readonly: true
+        })
+    });
+</script>
+<script type="text/javascript">
+layui.define(['laypage', 'layer', 'jquery'], function(exports) {
+        var $ = layui.jquery;
+        $(".download").on("click", function(event) {
+            layer.open({
+                type: 1,
+                title: false, //不显示标题栏
+                closeBtn: true,
+                area: '300px;',
+                shade: 0.8,
+                id: 'LAY_layuipro', //设定一个id，防止重复弹出
+                btn: ['我已知晓(￣▽￣)"'],
+                btnAlign: 'c',
+                moveType: 1, //拖拽模式，0或者1
+                content: ' <div style="padding: 20px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">购买下载（<span style="font-weight:bold">邮箱自动发货</span>）： <br> <br> 您好，购买后才能获得资料，购买时所填写的邮箱账户将作为资料接收的邮箱，购买后资料和秘钥几分钟内发送到您的邮箱。<br> <br> 注：若购买遇到问题，请联系邮箱aiesst@163.com   </div>',
+            });
+        })
+    });
+
+
+    //得到时间并写入div
+    function getDate() {
+        //获取当前时间
+        var date = new Date();
+        Y = date.getFullYear() + '-';
+        M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth()) : date.getMonth()) + '-';
+        D = (date.getDate() < 10 ? '0' + (date.getDate() - 1) : (date.getDate() - 2)) + ' ';
+        //格式化为本地时间格式
+        var date1 = (Y + M + D).toLocaleString();
+        //获取div
+        var div1 = document.getElementById("times");
+        //将时间写入div
+        div1.innerHTML = date1;
+    }
+    //使用定时器每秒向div写入当前时间
+    getDate()
+</script>

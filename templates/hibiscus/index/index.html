@@ -1,0 +1,764 @@
+<!--
+//                          _ooOoo_
+//                         o8888888o
+//                         88" . "88
+//                         (| ^_^ |)
+//                         O\  =  /O
+//                      ____/`---'\____
+//                    .'  \\|     |//  `.
+//                   /  \\|||  :  |||//  \
+//                  /  _||||| -:- |||||-  \
+//                  |   | \\\  -  /// |   |
+//                  | \_|  ''\---/''  |   |
+//                  \  .-\__  `-`  ___/-. /
+//                ___`. .'  /--.--\  `. . ___
+//              ."" '<  `.___\_<|>_/___.'  >'"".
+//            | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//            \  \ `-.   \_ __\ /__ _/   .-` /  /
+//      ========`-.____`-.___\_____/___.-`____.-'========
+//                           `=---='//
+//
+//            拦截插件累计拦截逗比攻击"3838438"次！
+//        .............................................
+//                  佛祖保佑         永无BUG
+//                                                               
+//                     江城子 . 程序员之歌
+// 
+//               十年生死两茫茫，写程序，到天亮。
+//                     千行代码，Bug何处藏。
+//               纵使上线又怎样，朝令改，夕断肠。           
+// 
+//               领导每天新想法，天天改，日日忙。
+//                    相顾无言，惟有泪千行。
+//               每晚灯火阑珊处，夜难寐，加班狂。
+//
+-->
+<?php include '../templates/hibiscus/common/header.html';?>
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" media="screen" type="text/css">
+        <div class="layui-carousel banner-carousel" id="banner">
+            <div carousel-item="" class="carousel-content">
+                <div class="img"><img class="banner-img" src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/banner-1.jpg"></div>
+                <div class="img"><img class="banner-img" src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/banner-2.png"></div>
+                <div class="img"><img class="banner-img" src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/banner-3.jpg"></div>
+            </div>
+        </div> 
+<div class="layui-container">
+    <div class="layui-row">
+        <!-- 公告-->
+
+        <div class="logo_by Left search-bg">
+            <div class="search">
+                <input type="hidden" name="kwtype" value="0">
+                <div class="search-wrap">
+                    <input id="demoReload" class="keyWord" type="text" name="q" value="汇智园：搜索设计关键字词(例如编号：001，关键词：超声波、8086)" autocomplete="off" onfocus="this.value=''">
+                </div>
+                <input class="submit sub-btn mod_search_btn" tabindex="9" value="搜&nbsp;索" id="search">
+                <div style="padding-top:5px;font-size: 12px;">
+                    热搜：
+                    <a href="/product/14.html" target="_blank" class="search-tips1">
+                        <font>&nbsp 电烤箱</font>
+                    </a>
+                    <!--a href="https://shop265939846.taobao.com/" target="_blank">
+                    <font color="white"> &nbsp 淘宝店</font>
+                </a-->
+                    <a href="/product/10.html" class="search-tips1">&nbsp 密码锁</a>
+                    <a href="/product/38.html" class="search-tips1"> &nbsp自行车码表</a>
+                    <a href="/product/48.html" class="search-tips1">&nbsp智能路灯</a>
+                    <a href="/product/1.html" class="search-tips1"> &nbsp巡线避障</a>
+                    <a href="/product/37.html" class="search-tips1"> &nbsp水位监测</a>
+	    <a href="/product/238.html" class="search-tips">&nbsp心率监测</a>
+                    <a href="/product/306.html" class="search-tips"> &nbsp太阳能</a>
+                    <a href="/product/265.html" class="search-tips"> &nbsp光控路灯</a>
+	   <a href="/product/303.html" class="search-tips"> &nbsp码表</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-card layui-form-pane">
+
+            <div class="layui-tab" lay-filter="tab-all" style="background:#f2f2f2">
+                <ul class="layui-tab-title" style="display: inline-block;">
+                    <!--li lay-id="1" data-status="" class="layui-this">所有资料</li-->
+                    <li lay-id="2" data-status="3">电路设计</li>
+         	    <!--li lay-id="4" data-status="1">硬件方案</li-->
+                    <!--li lay-id="3" data-status="3">硬件方案</li-->
+                    <!--li lay-id="4" data-status="1">电子资料</li-->
+                </ul>
+                <div class="serbz">
+                    <span class="no1 fa fa-bar-chart">产品专业</span>
+                    <span class="no2 fa fa-jpy">资金保障</span>
+                    <span class="no3 fa fa-id-card">交易保障</span>
+                    <span class="no4 fa fa-university">诚信单位</span>
+                </div>
+            </div>
+            <div class="layui-card-header layui-hide-xs">
+                <i class="fa fa-bullhorn">交易动态</i>
+                <div id="box" class="message-wrap">
+                    <ul id="bobaodiv" class="message-box" onmouseover="BBScrollAmount=0" onmouseout="BBScrollAmount=1">
+                        <li><span class="message-content">3662334**@qq.com</span>&nbsp<span style="color:#009688">2分钟前&nbsp</span>购买了<a href="/product/25.html" style="color: #369;">&nbsp;026【毕设课设】基于单片机智能输液器监控系统....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">toamstr**163.com</span>&nbsp<span style="color:#009688">5分钟前&nbsp</span>购买了<a href="/product/20.html" style="color: #369;">&nbsp;020【毕设课设】基于单片机模糊算法温度控....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">2828122**ail.com</span>&nbsp<span style="color:#009688">8分钟前&nbsp</span>购买了<a href="/product/22.html" style="color: #369;">&nbsp;022【毕设课设】基于单片机三路信号故障诊断仿....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">hyganyu**@qq.com</span>&nbsp<span style="color:#009688">11分钟前&nbsp</span>购买了<a href="/product/21.html" style="color: #369;">&nbsp;021【毕设课设】基于单片机汽车超声波防盗系统....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">HA*wei</span>&nbsp<span style="color:#009688">16分钟前&nbsp</span>购买了<a href="/product/17.html" style="color: #369;">&nbsp;017【毕设课设】基于单片机红外感应自动洗手....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">183804**9920</span>&nbsp<span style="color:#009688">25分钟前&nbsp</span>购买了<a href="/product/14.html" style="color: #369;">&nbsp;014【毕设课设】基于单片机电烤箱系统仿真设计....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">k**ytc@icloud.com</span>&nbsp<span style="color:#009688">34分钟前&nbsp</span>购买了<a href="/product/12.html" style="color: #369;">&nbsp;012【毕设课设】基于单片机智能液位水位监测控制....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">29**wo@126.com</span>&nbsp<span style="color:#009688">48分钟前&nbsp</span>购买了<a href="/product/8.html" style="color: #369;">&nbsp;008【毕业设计】基于51单片机冰箱温度控制....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">3630224**@qq.com</span>&nbsp<span style="color:#009688">51分钟前&nbsp</span>购买了<a href="/product/25.html" style="color: #369;">&nbsp;026【毕设课设】基于单片机智能输液器监控系统....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">tofei12**163.com</span>&nbsp<span style="color:#009688">9分钟前&nbsp</span>购买了<a href="/product/20.html" style="color: #369;">&nbsp;020【毕设课设】基于单片机模糊算法温度控....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                    </ul>
+                    <ul id="ul2"></ul>
+                </div>
+            </div>
+            <div class="layui-tab-brief layui-hide-md" style="display:inline-block">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">商品列表</li>
+                    <li class=""><a href="/product/query">查询订单</a></li>
+                </ul>
+            </div>
+            <div class="goodslist-mobile">
+                <div class="layui-row product-list-two-view" id="product-list-two-view"></div>
+                <!--div id="more" class="layui-row"></div-->
+                <div id="pager" style="text-align:center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="teacher-box">
+    <div class="layui-container" style="min-height:0!important">
+        <div class="tea-title">电子设计专家</div>
+        <div class="layui-row layui-col-space1">
+            <div class="layui-col-md3 tea-card tea1" style="padding-right:10px">
+                <div class="card-wrap">
+                    <div style="color:#777777"><span class="profile-text">在这里会持续给大家提供电子工程师/学生最常用的电子DIY设计资料，最专业也是最完善的资料。每个资料将会通过我们团队认真审核，审核通过才发布到本平台，供大家学习参考。</span></div>
+                    <div class="profile">
+                        <div style="display:inline-block">
+                            <img src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/1.jpg" class="profile-img">
+                        </div>
+                        <div class="profile-title">
+                            <p class="profile-author">Aiesst MO</p>
+                            <p class="profile-sub">汇智园创始人</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3 tea-card tea2"  style="padding:0 10px">
+                <div class="card-wrap">
+                    <div style="color:#777777"><span class="profile-text">博文教育创始人、Altium原厂特聘讲师、10年高速pcb设计实战经验、与Altium官方合作出版Altium Designer20 PCB设计基础指南一书，电子科技大学座客教授，汇智园平台顾问专家。</span></div>
+                    <div class="profile">
+                        <div style="display:inline-block">
+                            <img src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/2.jpg" class="profile-img">
+                        </div>
+                        <div class="profile-title">
+                            <p class="profile-author">吴雨杰</p>
+                            <p class="profile-sub">博文教育创始人</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3 tea-card tea3" style="padding:0 10px">
+                <div class="card-wrap">
+                    <div style="color:#777777"><span class="profile-text">西安电子科技大学机器人创新实验室团队，研究方向：计算机视觉算法、嵌入式开发等，他们曾在IEEE和的国际会议上发表论文十二篇，全国研究生创“芯”大赛获得一等奖，为汇智园平台提供技术支持。</span></div>
+                    <div class="profile">
+                        <div style="display:inline-block">
+                            <img src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/3.jpg" class="profile-img">
+                        </div>
+                        <div class="profile-title">
+                            <p class="profile-author">机器人创新团队</p>
+                            <p class="profile-sub">西安电子科技大学</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3 tea-card tea3" style="padding-left:10px">
+                <div class="card-wrap">
+                    <div style="color:#777777"><span class="profile-text">电子科技大学无线传感实验室团队，团队曾在多个国家级电子设计大赛中获得冠军、亚军等荣誉，多位成员保送至清华大学读硕、攻博，他们在汇智园平台发布了多个完善的设计作品，供大家学习参考。</span></div>
+                    <div class="profile">
+                        <div style="display:inline-block">
+                            <img src="https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/4.jpg" class="profile-img">
+                        </div>
+                        <div class="profile-title">
+                            <p class="profile-author">无线传感团队</p>
+                            <p class="profile-sub">电子科技大学</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script id="product_list_two_tpl" type="text/html">
+{{# if(d.data.length === 0){ }}
+    {{# }else{ }}
+        {{# layui.each(d.data, function(index, item){ }}
+            <div class="layui-col-md2 layui-col-sm6 goodsdetail" style="padding:8px 5px">
+                <a href="/product/{{item.id}}.html">
+                    <div class="goodsdetail-container">
+                        <div class="goodsdetail-img">
+	<div class="video-cover-con">
+		<div class="video-mark">
+			<svg width="24" height="24" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="web切片" transform="translate(-911.000000, -490.000000)"><g id="Group" transform="translate(911.000000, 490.000000)"><circle id="Oval-8" fill="#000000" cx="30" cy="30" r="30"></circle><polygon id="Rectangle-7-Copy" fill="#F7F7F7" points="21.5625 17.8125 38.4375 17.8125 38.4375 42.1875 30 35.5397727 21.5625 42.1875"></polygon></g></g></g></svg><div class="list-tags">
+		</div>
+		</div>
+	</div>
+                            {{# if(item.imgurl.length === 0){ }}
+                                <img src="/res/images/noimg.jpg">
+                                {{# }else{ }}
+                                    <img src="{{ item.imgurl}}" data-src="{{ item.imgurl}}">
+                                    {{# } }}
+                                        <div class="review">
+                                            <span class="msg" id="msgContent">{{ item.description}}</span>
+                                        </div>
+                        </div>
+
+                        <div class="goodsdetail-text">
+                            <!-- 第一行 -->
+		<div class="author"><i class="fa fa-user-o" aria-hidden="true"></i> 发布者：{{ item.author}}</div>
+                            <div class="row">
+                                
+		<p class="price">￥{{ item.price}}</p>
+                                <div class="kucun">{{ item.qty_sell}}人付款</div>
+                            </div>
+
+                            <div class="title" style="font-size:14px">
+                                {{ item.name}}
+                            </div>
+
+                            <div class="biaozhi">
+                                {{# if(item.auto=="1"){ }}
+		  
+                                    <span class="layui-badge layui-bg-green">自动发货</span>
+                                    {{# }else{ }}
+                                        <span class="layui-badge layui-bg-black">手工发货</span>
+                                        {{# } }}
+
+                                            {{# if(item.iszhekou=="1"){ }}
+                                                <span class="layui-badge layui-bg-orange">有折扣</span>
+                                                {{# } }}
+                                                    <span class="layui-badge layui-bg-blue commodity-type">{{ item.typeid}}</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {{# }); }}
+                {{# } }}
+</script>
+<script id="product_list_two_mobile_tpl" type="text/html">
+{{# if(d.data.length === 0){ }}
+    {{# }else{ }}
+        {{# layui.each(d.data, function(index, item){ }}
+            <div class="layui-col-md3 layui-col-sm4 goodsdetail">
+                <div class="goodsdetail-mobile">
+                    <div class="goodsdetail-mobile-img">
+                        <a href="/product/{{item.id}}.html">
+                            {{# if(item.imgurl.length === 0){ }}
+                                <img src="/res/images/noimg.jpg">
+                                {{# }else{ }}
+                                    <img src="{{ item.imgurl}}">
+                                    {{# } }}
+                        </a>
+                    </div>
+                    <div class="goodsdetail-mobile-text">
+                         <div class="row">
+                                <div class="author" style="display:inline-block;">发布者：{{ item.author}}</div>
+                                <div class="kucun" style="float:right;font-size: 12px; color: #888;">{{ item.qty_sell}}人付款</div>
+                         </div>
+                        <p class="title" style="color:black">{{ item.name}}</p>
+                        <p class="biaozhi">
+                            {{# if(item.auto=="1"){ }}
+		<p class="price">￥{{ item.price}}</p>
+                                <span class="layui-badge layui-bg-green">自动发货</span>
+                                {{# }else{ }}
+                                    <span class="layui-badge layui-bg-black">手工发货</span>
+                                    {{# } }}
+
+                                        {{# if(item.iszhekou=="1"){ }}
+                                            <span class="layui-badge layui-bg-orange">有折扣</span>
+                                            {{# } }}
+                                                <span class="layui-badge layui-bg-blue commodity-type" >{{ item.typeid}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {{# }); }}
+                {{# } }}
+</script>
+<div id="layerad" style="display: none;"><?php echo $config['layerad'];?></div>
+<!--引入公共底文件-->
+<?php include '../templates/hibiscus/common/footer.html';?>
+<script>
+    layui.use('product-list-two');
+</script>
+
+<script>
+    let oMarquee; //播报的容器
+    let BBLineH = 26; //单行高度，像素
+    let BBScrollAmount = 1; //每次滚动高度，像素
+    let BBLineCount = 6; //当前这批数据 实际行数
+    let rollRestTime = 1000; //一条新播报滚动完成后，距离下一次滚动的间隔时间 单位ms
+    let rollTime = 10; //播报滚动中的刷新时间 单位ms
+
+    /*
+     * 启动播报滚动事件
+     */
+    window.onload = function() {
+        BBAllTime = 0;
+        oMarquee = document.getElementById("bobaodiv"); //滚动对象
+        window.setTimeout("run()", rollRestTime);
+    }
+
+    /*
+     * 播报滚动事件主逻辑
+     */
+    function run() {
+        if (BBScrollAmount == 0) { //若单次滚动的距离为0，则开始下一次监听，不计数
+            window.setTimeout("run()", rollTime);
+            return;
+        }
+        if (oMarquee.scrollTop >= BBLineCount * BBLineH) { //滚动完一次数据后，复位
+            oMarquee.scrollTop = 0;
+        }
+        oMarquee.scrollTop += BBScrollAmount;
+        if (oMarquee.scrollTop % BBLineH < 1 && oMarquee.scrollTop > 0) {
+            window.setTimeout("run()", rollRestTime);
+        } else {
+            window.setTimeout("run()", rollTime);
+        }
+    }
+
+    let b = 1920 / 450; //图片比例
+    let imgWidth = $('.layui-carousel').width()
+
+    layui.use('carousel', function() {
+        let carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#banner',
+            width: '100%', //设置容器宽度
+            height: (imgWidth / b).toString() + "px", //按比例和浏览器可视页面宽度来获取高度
+            arrow: 'always' //始终显示箭头
+            //,anim: 'updown' //切换动画方式
+        });
+    });
+    //判断是手机还是电脑
+    function IsPC() {
+        let userAgentInfo = navigator.userAgent;
+        let Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+        let flag = true;
+        for (let v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    function resizePage() {
+        $('.fly-marginTop').css("min-height", (document.documentElement.clientHeight - 210) + 'px');
+        let imgHeight = $('.carousel-content .layui-this .banner-img').height();
+        $('.carousel-content').height(imgHeight);
+        console.log(imgHeight, );
+        $('.banner-carousel').height(imgHeight);
+    }
+
+    //窗口变化是重新加载
+    $(window).resize(function() {
+        // setBanner();
+        if (IsPC()) {
+            resizePage();
+        }
+
+    })
+
+    document.onkeydown = function (e) {
+            var theEvent = window.event || e;
+            var code = theEvent.keyCode || theEvent.which;
+            if (code == 13) {
+                $("#search").click();
+            }
+    }
+
+</script>
+
+<style>
+    @media (max-width: 1300px) and (min-width: 1200px) {
+        .layui-container {
+            width: 1170px !important;
+        }
+    }
+
+    @media (max-width: 1400px) and (min-width: 1301px) {
+        .layui-container {
+            width: 1270px !important;
+        }
+    }
+
+    @media (max-width: 1500px) and (min-width: 1401px) {
+        .layui-container {
+            width: 1370px !important;
+        }
+    }
+
+    @media (max-width: 1600px) and (min-width: 1501px) {
+        .layui-container {
+            width: 1470px !important;
+        }
+    }
+
+    @media (max-width: 1700px) and (min-width: 1601px) {
+        .layui-container {
+            width: 1570px !important;
+        }
+    }
+
+    @media (max-width: 1800px) and (min-width: 1701px) {
+        .layui-container {
+            width: 1670px !important;
+        }
+    }
+
+    @media (max-width: 1900px) and (min-width: 1801px) {
+        .layui-container {
+            width: 1770px !important;
+        }
+    }
+    @media (max-width: 2000px) and (min-width: 1901px) {
+        .layui-container {
+            width: 1770px !important;
+        }
+    }
+    @media (max-width: 4000px) and (min-width: 2001px) {
+        .layui-container {
+            width: 1870px !important;
+        }
+    }
+
+
+    .goodsdetail-container:hover .video-cover-con {
+        background: rgba(0, 0, 0, .5);
+    }
+
+    .goodsdetail-container:hover .video-mark {
+        display: none;
+    }
+
+    .video-cover-con {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .video-mark {
+        position: absolute;
+        font-size: 0;
+        width: 100%;
+        top: 12px;
+        left: 0px;
+        padding: 0 14px;
+        box-sizing: border-box;
+        z-index: 1000;
+    }
+
+    .banner-carousel {
+        margin-bottom: 20px;
+        margin-top: -25px;
+    }
+
+    .author {
+        border-bottom: 1px solid #f7f7f7;
+    }
+
+    .goodsdetail-container img {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
+    #product-list-two-view {
+        background: #f4f4f4;
+    }
+
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    .price {
+        margin-right: 0 !important;
+    }
+
+    .banner-img {
+        width: 100%;
+    }
+
+    #box {
+        overflow: hidden;
+    }
+
+    .message-wrap {
+        line-height: 26px;
+        display: inline-block;
+        height: 28px;
+    }
+
+    .message-box {
+        overflow: hidden;
+        height: 24px;
+        margin-top: 8px;
+    }
+
+    .message-content {
+        color: #f60;
+        height: 24px;
+    }
+
+    .layui-tab-title li+li {
+        margin: 0 1px !important;
+    }
+
+    .title {
+        word-break: break-all;
+        font-weight: bold !important;
+    }
+
+    .layui-tab-title li:hover {
+        color: white;
+        background-color: #009688;
+    }
+
+    .layui-form-pane {
+        border: 1px solid #ddd !important;
+    }
+
+    .author {
+        font-size: 12px;
+        color: #888;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        word-break: break-all;
+    }
+
+    .search-tips,
+    .search-tips1 {
+        color: white;
+    }
+
+    @media (max-width: 960px) {
+
+
+        .serbz {
+            display: none;
+        }
+
+        .search-tips {
+            display: none;
+        }
+
+        .layui-tab-brief {
+            display: none !important;
+        }
+    }
+
+
+    .serbz {
+        color: #666;
+        padding: 15px 0;
+        float: right;
+        height: 35px;
+        text-align: left;
+    }
+
+    .serbz span {
+        margin: 0 5px;
+    }
+
+
+    .logo_by {
+        background: white;
+        padding: 30px 0 30 0;
+        margin-bottom: 10px;
+        border: 1px solid #ddd !important;
+    }
+
+    .logo_by .search {
+        height: 40px;
+        position: relative;
+        width: 47%;
+        z-index: 105;
+        margin: 0 auto;
+    }
+
+    .logo_by .search .search-wrap {
+        height: 34px;
+        border: 1px solid white;
+        background: #FFF !important;
+    }
+
+    .logo_by .search .keyWord {
+        color: #909090;
+        float: left;
+        caret-color: #009688;
+        height: 30px;
+        line-height: 30px;
+        overflow: hidden;
+        padding: 0;
+        width: 358px;
+        text-indent: 35px;
+        background: none;
+        border: none;
+        background: url(/res/images/searchbg.gif) no-repeat 10px 7px;
+        margin-top: 2px;
+        background-color: #FFF;
+    }
+
+
+
+    .logo_by .search .sub-btn {
+        border: 0;
+        cursor: pointer;
+        height: 36px;
+        padding: 10px 20px;
+        line-height: 36px;
+        overflow: hidden;
+        width: 80px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-family: "微软雅黑";
+        font-size: 16px;
+        color: #FFF;
+        transition: all .2s ease-in-out;
+        background: #009688;
+    }
+
+    .search a {
+        text-decoration: none;
+        font-size: 12px;
+    }
+
+    .home-tips {
+        margin-bottom: 10px;
+        border: 1px solid #ddd !important;
+        background-color: white;
+        border-radius: 0 0 5px 5px;
+    }
+
+    .fly-marginTop {
+        margin-top: 0;
+    }
+
+    .teacher-box {
+        margin: 20px 0 0 0;
+        padding: 0;
+        background-image: url(https://gytblog.oss-cn-shenzhen.aliyuncs.com/faka/bb.png);
+        background-repeat: repeat;
+        background-position: 50% 50%;
+        background-attachment: scroll;
+        background-size: auto;
+        opacity: 1;
+        transition: box-shadow .3s, border .3s, background-color .3s, color .3s;
+    }
+
+    .tea-card:hover {
+        box-shadow: 0 4px 12px 0px rgba(0, 0, 0, .1);
+    }
+    
+    .goodsdetail-text .title{
+          height:40px!important;
+     }
+    .logo_by .search .keyWord{
+         width:100%!important;
+    }
+
+    .tea-title {
+        margin-bottom: 15px;
+        font-size: 22px;
+        border-left: 4px solid #009688;
+        padding: 0 10px;
+    }
+
+    .profile {
+        margin: 12px;
+    }
+
+    .profile-img {
+        width: auto;
+        height: 88px;
+        border-radius: 50%;
+    }
+
+    .profile-title {
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    .profile-author {
+        color: #333333;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .profile-sub {
+        color: #e67e22;
+        font-size: 14px;
+    }
+
+    .profile-text {
+        text-align: justify;
+        line-height: 2;
+    }
+
+    .card-wrap {
+        padding: 10px 15px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 1px 16px rgb(204, 204, 204);
+    }
+
+    @media (max-width: 960px) {
+        .tea-card {
+            padding: 5px 0 !important;
+        }
+
+        .banner-carousel {
+
+            margin-top: 10px !important;
+        }
+    }
+
+
+
+    .search-bg {
+        margin: 0;
+        width: 100%;
+        font-family: "Exo", sans-serif;
+        color: #fff;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+</style>

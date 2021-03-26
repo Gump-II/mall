@@ -1,0 +1,54 @@
+﻿	<div class="fly-footer">
+	    <p><a href="#" target="_blank">Copyright © 2016-2020 电路设计网 版权所有-为你提供专业的精品设计资料 备案号：蜀ICP备18036001号-1 </a></p>
+	    <p>免责声明：本站所有设计资料均来自商家自行上传，经过站长严格审核后发布</p>
+	    <p>汇智园电子设计网由网络各团队或个人已自行发布了上千套完整的设计资料，仅供大家参考学习</p>
+	    <div class="footer-img">
+	        <a href="#" target="_blank" class="declare" rel="nofollow"><img src="/res/images/1.png"></a>
+	        <a href="#" target="_blank" class="declare" rel="nofollow"><img src="/res/images/2.png"></a>
+	        <a href="#" target="_blank" class="declare" rel="nofollow"><img src="/res/images/3.png"></a>
+	        <a href="#" target="_blank" class="declare" rel="nofollow"><img src="/res/images/4.png"></a>
+	    </div>
+	</div>
+	<div id="pop" style="display:none;">
+	    <div id="popHead">
+	        <a id="popClose" title="关闭"></a>
+	    </div>
+	    <div id="popContent">
+	        <img src="/res/images/vip2.png" alt="汇智园电子工作室">
+	    </div>
+	</div>
+<script src="/res/layui/layui.js"></script>
+<script>
+layui.config({
+  version: "<?php echo VERSION;?>"
+  ,base: '/res/mods/'
+}).use('common');
+layui.use('element', function(){
+  var element = layui.element;
+});
+</script>
+<script type="text/javascript">
+    layui.define(['laypage', 'layer', 'jquery'], function(exports) {
+    var $ = layui.jquery;
+    $(".notice").on("click", function(event) {
+        layer.open({
+            type: 1,
+            title: false, //不显示标题栏
+            closeBtn: true,
+            area: '300px;',
+            shade: 0.8,
+            id: 'LAY_layuipro', //设定一个id，防止重复弹出
+            btn: ['我已知晓(￣▽￣)"'],
+            btnAlign: 'c',
+            moveType: 1, //拖拽模式，0或者1
+            content: ' <div style="padding: 20px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">公告： <br> <br> 由于近期平台接到个别原创作者举报，现存在某些发布者将非本人的原创作品发布到汇智园平台，故暂停发布功能以及下架部分作品，同时逐一邮件联系发布者确认资料原创性，资料原创性审核通过后即可主页上线， 请各位作者静候此模块功能更新上线<br> <br> 汇智园为作品商家和设计需求者提供最好的服务  <br> <br> 谢谢您们的支持^ _ ^！  </div>',
+        });
+    })
+    });
+</script>
+<!--统计代码-->
+<?php if(isset($config['tongji']) AND strlen($config['tongji'])>0):?>
+<?php echo $config['tongji'];?>
+<?php endif;?>
+</body>
+</html>

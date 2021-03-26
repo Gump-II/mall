@@ -1,0 +1,403 @@
+<!--
+//                          _ooOoo_
+//                         o8888888o
+//                         88" . "88
+//                         (| ^_^ |)
+//                         O\  =  /O
+//                      ____/`---'\____
+//                    .'  \\|     |//  `.
+//                   /  \\|||  :  |||//  \
+//                  /  _||||| -:- |||||-  \
+//                  |   | \\\  -  /// |   |
+//                  | \_|  ''\---/''  |   |
+//                  \  .-\__  `-`  ___/-. /
+//                ___`. .'  /--.--\  `. . ___
+//              ."" '<  `.___\_<|>_/___.'  >'"".
+//            | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//            \  \ `-.   \_ __\ /__ _/   .-` /  /
+//      ========`-.____`-.___\_____/___.-`____.-'========
+//                           `=---='//
+//
+//            拦截插件累计拦截逗比攻击"3838438"次！
+//        .............................................
+//                  佛祖保佑         永无BUG
+//                                                               
+//                     江城子 . 程序员之歌
+// 
+//               十年生死两茫茫，写程序，到天亮。
+//                     千行代码，Bug何处藏。
+//               纵使上线又怎样，朝令改，夕断肠。           
+// 
+//               领导每天新想法，天天改，日日忙。
+//                    相顾无言，惟有泪千行。
+//               每晚灯火阑珊处，夜难寐，加班狂。
+//
+-->
+<?php include '../templates/hibiscus/common/header.html';?>
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" media="screen" type="text/css">
+<div class="layui-container fly-marginTop fly-user-main">
+    <div class="layui-row">
+        <div class="layui-carousel" id="test1" lay-filter="test1">
+            <div carousel-item="">
+                <div>条目1</div>
+                <div>条目2</div>
+                <div>条目3</div>
+                <div>条目4</div>
+                <div>条目5</div>
+            </div>
+        </div> 
+        <!-- 公告-->
+        <?php if(isset($config['notice']) AND $config['notice']):?>
+        <blockquote class="layui-elem-quote layui-text home-tips">
+            <i class="layui-icon layui-icon-speaker"></i><?php echo $config['notice'];?>
+        </blockquote>
+        <div class="logo_by Left">
+            <div class="search">
+
+                <input type="hidden" name="kwtype" value="0">
+                <div class="search-wrap">
+                    <input id="demoReload" class="keyWord" type="text" name="q" value="汇智园：搜索设计关键字词！" autocomplete="off" onfocus="this.value=''">
+                </div>
+                <input class="submit sub-btn mod_search_btn" tabindex="9" value="搜&nbsp;索" id="search">
+                <div style="padding-top:5px;font-size: 12px;">
+                    热搜：
+                    <a href="https://pay.ythero.com/product/14.html" target="_blank">
+                        <font color="#FF0000">&nbsp 电烤箱</font>
+                    </a>
+                    <!--a href="https://shop265939846.taobao.com/" target="_blank">
+                    <font color="#FF0000"> &nbsp 淘宝店</font>
+                </a-->
+                    <a href="" color="#FF0000">&nbsp 8086</a>
+                    <a href="https://pay.ythero.com/product/38.html"> &nbsp自行车码表</a>
+                    <a href="https://pay.ythero.com/product/48.html">&nbsp智能路灯</a>
+                    <a href="https://pay.ythero.com/product/1.html"> &nbsp巡线避障</a>
+                    <a href="https://pay.ythero.com/product/37.html"> &nbsp水位监测</a>
+                </div>
+            </div>
+        </div>
+
+        <?php endif;?>
+        <div class="layui-card layui-form-pane">
+
+            <div class="layui-tab layui-tab-card" lay-filter="tab-all" style="background:#f2f2f2">
+                <ul class="layui-tab-title" style="display: inline-block;">
+                    <li lay-id="1" data-status="" class="layui-this">所有资料</li>
+                    <li lay-id="2" data-status="2">设计仿真</li>
+                    <li lay-id="3" data-status="3">硬件方案</li>
+                    <li lay-id="4" data-status="1">电子资料</li>
+                </ul>
+                <div class="serbz">
+                    <span class="no1 fa fa-bar-chart">产品专业</span>
+                    <span class="no2 fa fa-jpy">资金保障</span>
+                    <span class="no3 fa fa-id-card">交易保障</span>
+                    <span class="no4 fa fa-university">诚信单位</span>
+                </div>
+            </div>
+            <div class="layui-card-header layui-hide-xs">
+                <i class="fa fa-bullhorn">交易动态</i>
+                <div id="box" class="message-wrap">
+                    <ul id="bobaodiv" class="message-box" onmouseover="BBScrollAmount=0" onmouseout="BBScrollAmount=1">
+                        <li><span class="message-content">3662334**@qq.com</span>&nbsp购买了<a href="https://pay.ythero.com/product/25.html" style="color: #369;">&nbsp;026【毕设课设】基于单片机智能输液器监控系统....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">toamstr**163.com</span>&nbsp购买了<a href="https://pay.ythero.com/product/20.html" style="color: #369;">&nbsp;020【毕设课设】基于单片机模糊算法温度控....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">2828122**ail.com</span>&nbsp购买了<a href="https://pay.ythero.com/product/22.html" style="color: #369;">&nbsp;022【毕设课设】基于单片机三路信号故障诊断仿....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">hyganyu**@qq.com</span>&nbsp购买了<a href="https://pay.ythero.com/product/21.html" style="color: #369;">&nbsp;021【毕设课设】基于单片机汽车超声波防盗系统....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">HA*wei</span>&nbsp购买了<a href="https://pay.ythero.com/product/17.html" style="color: #369;">&nbsp;017【毕设课设】基于单片机红外感应自动洗手....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">183804**9920</span>&nbsp购买了<a href="https://pay.ythero.com/product/14.html" style="color: #369;">&nbsp;014【毕设课设】基于单片机电烤箱系统仿真设计....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">k**ytc</span>&nbsp购买了<a href="https://pay.ythero.com/product/12.html" style="color: #369;">&nbsp;012【毕设课设】基于单片机智能液位水位监测控制....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">道服**wo</span>&nbsp购买了<a href="https://pay.ythero.com/product/8.html" style="color: #369;">&nbsp;008【毕业设计】基于51单片机冰箱温度控制....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">3630224**@qq.com</span>&nbsp购买了<a href="https://pay.ythero.com/product/25.html" style="color: #369;">&nbsp;026【毕设课设】基于单片机智能输液器监控系统....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                        <li><span class="message-content">tofei12**163.com</span>&nbsp购买了<a href="https://pay.ythero.com/product/20.html" style="color: #369;">&nbsp;020【毕设课设】基于单片机模糊算法温度控....&nbsp;&nbsp;&nbsp;&nbsp;</a>[交易成功]</li>
+                    </ul>
+                    </ul>
+                    <ul id="ul2"></ul>
+                </div>
+            </div>
+            <div class="layui-tab-brief layui-hide-md" style="display:inline-block">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">商品列表</li>
+                    <li class=""><a href="/product/query">查询订单</a></li>
+                </ul>
+            </div>
+            <div class="goodslist-mobile">
+                <div class="layui-row product-list-two-view" id="product-list-two-view"></div>
+                <!--div id="more" class="layui-row"></div-->
+                <div id="pager" style="text-align:center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="product_list_two_tpl" type="text/html">
+{{# if(d.data.length === 0){ }}
+    {{# }else{ }}
+        {{# layui.each(d.data, function(index, item){ }}
+            <div class="layui-col-md3 layui-col-sm4 goodsdetail">
+                <a href="/product/{{item.id}}.html">
+                    <div class="goodsdetail-container">
+                        <div class="goodsdetail-img">
+                            {{# if(item.imgurl.length === 0){ }}
+                                <img src="/res/images/noimg.jpg">
+                                {{# }else{ }}
+                                    <img src="{{ item.imgurl}}">
+                                    {{# } }}
+                                        <div class="review">
+                                            <span class="msg" id="msgContent">{{ item.description}}</span>
+                                        </div>
+                        </div>
+
+                        <div class="goodsdetail-text">
+                            <!-- 第一行 -->
+                            <div class="row">
+                                <div class="price"><b>￥{{ item.price}}</b></div>
+                                <div class="kucun">{{ item.qty_sell}}人付款</div>
+                            </div>
+
+                            <div class="title">
+                                {{ item.name}}
+                            </div>
+
+                            <div class="biaozhi">
+                                {{# if(item.auto=="1"){ }}
+                                    <span class="layui-badge layui-bg-green">自动发货</span>
+                                    {{# }else{ }}
+                                        <span class="layui-badge layui-bg-black">手工发货</span>
+                                        {{# } }}
+
+                                            {{# if(item.iszhekou=="1"){ }}
+                                                <span class="layui-badge layui-bg-orange">有折扣</span>
+                                                {{# } }}
+                                                    <span class="layui-badge layui-bg-blue commodity-type" style="float:right">{{ item.typeid}}</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {{# }); }}
+                {{# } }}
+</script>
+<script id="product_list_two_mobile_tpl" type="text/html">
+{{# if(d.data.length === 0){ }}
+    {{# }else{ }}
+        {{# layui.each(d.data, function(index, item){ }}
+            <div class="layui-col-md3 layui-col-sm4 goodsdetail">
+                <div class="goodsdetail-mobile">
+                    <div class="goodsdetail-mobile-img">
+                        <a href="/product/{{item.id}}.html">
+                            {{# if(item.imgurl.length === 0){ }}
+                                <img src="/res/images/noimg.jpg">
+                                {{# }else{ }}
+                                    <img src="{{ item.imgurl}}">
+                                    {{# } }}
+                        </a>
+                    </div>
+                    <div class="goodsdetail-mobile-text">
+                        <p class="price"><b>￥{{ item.price}}</b><span style="float:right">{{ item.qty_sell}}人付款</span></p>
+                        <p class="title" style="color:black">{{ item.name}}</p>
+                        <p class="biaozhi">
+                            {{# if(item.auto=="1"){ }}
+                                <span class="layui-badge layui-bg-green">自动发货</span>
+                                {{# }else{ }}
+                                    <span class="layui-badge layui-bg-black">手工发货</span>
+                                    {{# } }}
+
+                                        {{# if(item.iszhekou=="1"){ }}
+                                            <span class="layui-badge layui-bg-orange">有折扣</span>
+                                            {{# } }}
+                                                <span class="layui-badge layui-bg-blue commodity-type" style="float:right">{{ item.typeid}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {{# }); }}
+                {{# } }}
+</script>
+<div id="layerad" style="display: none;"><?php echo $config['layerad'];?></div>
+<!--引入公共底文件-->
+<?php include '../templates/hibiscus/common/footer.html';?>
+<script>
+    layui.use('product-list-two');
+</script>
+<script>
+    var oMarquee; //播报的容器
+    var BBLineH = 26; //单行高度，像素
+    var BBScrollAmount = 1; //每次滚动高度，像素
+    var BBLineCount = 6; //当前这批数据 实际行数
+    var rollRestTime = 1000; //一条新播报滚动完成后，距离下一次滚动的间隔时间 单位ms
+    var rollTime = 10; //播报滚动中的刷新时间 单位ms
+
+    /*
+     * 启动播报滚动事件
+     */
+    window.onload = function() {
+        BBAllTime = 0;
+        oMarquee = document.getElementById("bobaodiv"); //滚动对象
+        window.setTimeout("run()", rollRestTime);
+    }
+
+    /*
+     * 播报滚动事件主逻辑
+     */
+    function run() {
+        if (BBScrollAmount == 0) { //若单次滚动的距离为0，则开始下一次监听，不计数
+            window.setTimeout("run()", rollTime);
+            return;
+        }
+        if (oMarquee.scrollTop >= BBLineCount * BBLineH) { //滚动完一次数据后，复位
+            oMarquee.scrollTop = 0;
+        }
+        oMarquee.scrollTop += BBScrollAmount;
+        if (oMarquee.scrollTop % BBLineH < 1 && oMarquee.scrollTop > 0) {
+            window.setTimeout("run()", rollRestTime);
+        } else {
+            window.setTimeout("run()", rollTime);
+        }
+    }
+
+    
+    layui.use(['carousel', 'form'], function(){
+    var carousel = layui.carousel,form = layui.form;
+    
+    //常规轮播
+    carousel.render({
+        elem: '#test1',
+        arrow: 'always'
+    });
+    
+    });
+</script>
+<style>
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    #box {
+        overflow: hidden;
+    }
+
+    .message-wrap {
+        line-height: 26px;
+        display: inline-block;
+        height: 28px;
+    }
+
+    .message-box {
+        overflow: hidden;
+        height: 24px;
+        margin-top: 8px;
+    }
+
+    .message-content {
+        color: #f60;
+        height: 24px;
+    }
+
+    .layui-tab-title li+li {
+        margin: 0 1px !important;
+    }
+
+
+    .layui-tab-title li:hover {
+        color: white;
+        background-color: #009688;
+    }
+
+    .layui-form-pane {
+        border: 1px solid #ddd !important;
+    }
+
+    @media (max-width: 960px) {
+        .serbz {
+            display: none;
+        }
+
+        .layui-tab-brief {
+            display: none !important;
+        }
+    }
+
+
+    .serbz {
+        color: #666;
+        padding: 15px 0;
+        float: right;
+        height: 35px;
+        text-align: left;
+    }
+
+    .serbz span {
+        margin: 0 5px;
+    }
+
+
+    .logo_by {
+        border-radius: 6px;
+        background: white;
+        padding: 30px 0 30 0;
+        margin-bottom: 10px;
+        border: 1px solid #ddd !important;
+    }
+
+    .logo_by .search {
+        height: 40px;
+        position: relative;
+        width: 47%;
+        z-index: 105;
+        margin: 0 auto;
+    }
+
+    .logo_by .search .search-wrap {
+        height: 34px;
+        border: 2px solid #009688;
+        background: #FFF !important;
+    }
+
+    .logo_by .search .keyWord {
+        color: #909090;
+        float: left;
+
+        height: 30px;
+        line-height: 30px;
+        overflow: hidden;
+        padding: 0;
+        width: 358px;
+        text-indent: 35px;
+        background: none;
+        border: none;
+        background: url(/res/images/searchbg.gif) no-repeat 10px 7px;
+        margin-top: 2px;
+        background-color: #FFF;
+    }
+
+
+
+    .logo_by .search .sub-btn {
+        border: 0;
+        cursor: pointer;
+        height: 36px;
+        padding: 10px 20px;
+        line-height: 36px;
+        overflow: hidden;
+        width: 80px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-family: "微软雅黑";
+        font-size: 16px;
+        color: #FFF;
+        transition: all .2s ease-in-out;
+        background: #009688;
+    }
+
+    .search a {
+        text-decoration: none;
+        font-size: 12px;
+    }
+
+    .home-tips {
+        margin-bottom: 10px;
+        border: 1px solid #ddd !important;
+        background-color: white;
+    }
+</style>

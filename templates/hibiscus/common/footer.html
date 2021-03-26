@@ -1,0 +1,410 @@
+<div class="qqserver">
+        <div class="qqserver_fold">
+            <div></div>
+        </div>
+        <div class="qqserver-body" style="display: block;">
+            <div class="qqserver-header">
+                <div></div>
+                <span class="qqserver_arrow"></span>
+            </div>
+            <ul>
+                <li>
+                    <a title="所有作品" href="/product" target="_blank">
+                        <div>所有作品</div>
+                        <span>进入</span>
+                    </a>
+                </li>
+                <li>
+                    <a title="查询订单" href="/product/query" target="_blank">
+                        <div>查询订单</div>
+                        <span>进入</span>
+                    </a>
+                </li>
+                <li>
+                    <a title="常见问题" href="/about" target="_blank">
+                        <div>常见问题</div>
+                        <span class="qqserver-service-alert">进入</span>
+                    </a>
+                </li>
+                <li> 
+                  <a title="联系客服" href="tencent://message/?uin=2319805936&Site=&Menu=yes" target="_blank">
+                        <div>联系客服</div>
+                        <span class="qqserver-service-alert">进入</span>
+                    </a>
+                   </li>
+            </ul>
+           
+        </div>
+    </div>
+
+
+	<div class="footer-box">
+	    <div class="footer-icon">
+	        <div class="w">
+	            <a href="/" target="_blank" title="高校合作" rel="nofollow" class="icon-map">
+	                <p class="icon-bg i1"></p>
+	                <p class="icon-title">高校合作</p>
+	            </a>
+	            <a href="#" target="_blank" title="作品完善" rel="nofollow" class="icon-map">
+	                <p class="icon-bg i3"></p>
+	                <p class="icon-title">作品完善</p>
+	            </a><a href="#" target="_blank" title="业界口碑" rel="nofollow" class="icon-map">
+	                <p class="icon-bg i4"></p>
+	                <p class="icon-title">业界口碑</p>
+	            </a>
+	            <a href="#" target="_blank" title="注重售后" rel="nofollow" class="icon-map">
+	                <p class="icon-bg i5"></p>
+	                <p class="icon-title">注重售后</p>
+	            </a>
+	            <a href="#" target="_blank" title="版权保护" rel="nofollow" class="icon-map">
+	                <p class="icon-bg i6"></p>
+	                <p class="icon-title">版权保护</p>
+	            </a>
+	            <a href="#" target="_blank" title="支付安全" rel="nofollow" class="icon-map">
+	                <p class="icon-bg i7"></p>
+	                <p class="icon-title">支付安全</p>
+	            </a>
+	            <a href="#" target="_blank" title="99%好评" rel="nofollow" class="icon-map">
+	                <p class="icon-bg i8"></p>
+	                <p class="icon-title">99%好评</p>
+	            </a> </div>
+	    </div>
+
+
+	    <div class="fly-footer" style="margin-top:0">
+	        <ul class="footer-column-t">
+	            <li><a href="/product">所有作品</a></li>
+	            <li><a href="/product/query">查询订单</a></li>
+	            <li><a href="/about" target="_blank">常见问题</a></li>
+	            <li><a href="tencent://message/?uin=2319805936&Site=&Menu=yes" target="_blank">联系客服</a></li>
+	            <li><a href="sitemap.xml" target="_blank">SiteMap</a></li>
+	            <li><a href="sitemap.txt" target="_blank">网站地图</a></li>
+	        </ul>
+
+	        <p>免责声明：本站所有设计资料均来自商家自行上传，经过站长严格审核后发布</p>
+	        <p>汇智园电子设计网由网络各团队或个人已自行发布了上千套完整的设计资料，仅供大家参考学习</p>
+	        <div class="footer-img">
+	            <a href="#" target="_blank" class="declare" rel="nofollow"><img src="/res/images/1.png"></a>
+	            <a href="#" target="_blank" class="declare" rel="nofollow"><img src="/res/images/2.png"></a>
+	            <a href="#" target="_blank" class="declare" rel="nofollow"><img src="/res/images/3.png"></a>
+	            <a href="#" target="_blank" class="declare" rel="nofollow"><img src="/res/images/4.png"></a>
+	        </div>
+
+	    </div>
+
+	    <p class="copyright">Copyright © 2016-2020 电路设计网 版权所有-为你提供专业的精品设计资料 备案号：蜀ICP备18036001号-1 </p>
+	    <div id="pop" style="display:none;">
+	        <div id="popHead">
+	            <a id="popClose" title="关闭"></a>
+	        </div>
+	        <div id="popContent">
+	            <img src="/res/images/vip2.png" alt="汇智园电子工作室">
+	        </div>
+	    </div>
+	</div>
+	<script src="/res/layui/layui.js"></script>
+	<script type="text/javascript" src="/res/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/res/js/qqserver.js"></script>
+	<script type="text/javascript">
+	    jQuery.browser = {};
+	    (function() {
+	        jQuery.browser.msie = false;
+	        jQuery.browser.version = 0;
+	        if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+	            jQuery.browser.msie = true;
+	            jQuery.browser.version = RegExp.$1;
+	        }
+	    })();
+	    (function($j) {
+	        $j.positionFixed = function(el) {
+	            $j(el).each(function() {
+	                new fixed(this)
+	            })
+	            return el;
+	        }
+	        $j.fn.positionFixed = function() {
+	            return $j.positionFixed(this)
+	        }
+	        var fixed = $j.positionFixed.impl = function(el) {
+	            var o = this;
+	            o.sts = {
+	                target: $j(el).css('position', 'fixed'),
+	                container: $j(window)
+	            }
+	            o.sts.currentCss = {
+	                top: o.sts.target.css('top'),
+	                right: o.sts.target.css('right'),
+	                bottom: o.sts.target.css('bottom'),
+	                left: o.sts.target.css('left')
+	            }
+	            if (!o.ie6) return;
+	            o.bindEvent();
+	        }
+	        $j.extend(fixed.prototype, {
+	            ie6: $.browser.msie && $.browser.version < 7.0,
+	            bindEvent: function() {
+	                var o = this;
+	                o.sts.target.css('position', 'absolute')
+	                o.overRelative().initBasePos();
+	                o.sts.target.css(o.sts.basePos)
+	                o.sts.container.scroll(o.scrollEvent()).resize(o.resizeEvent());
+	                o.setPos();
+	            },
+	            overRelative: function() {
+	                var o = this;
+	                var relative = o.sts.target.parents().filter(function() {
+	                    if ($j(this).css('position') == 'relative') return this;
+	                })
+	                if (relative.size() > 0) relative.after(o.sts.target)
+	                return o;
+	            },
+	            initBasePos: function() {
+	                var o = this;
+	                o.sts.basePos = {
+	                    top: o.sts.target.offset().top - (o.sts.currentCss.top == 'auto' ? o.sts.container.scrollTop() : 0),
+	                    left: o.sts.target.offset().left - (o.sts.currentCss.left == 'auto' ? o.sts.container.scrollLeft() : 0)
+	                }
+	                return o;
+	            },
+	            setPos: function() {
+	                var o = this;
+	                o.sts.target.css({
+	                    top: o.sts.container.scrollTop() + o.sts.basePos.top,
+	                    left: o.sts.container.scrollLeft() + o.sts.basePos.left
+	                })
+	            },
+	            scrollEvent: function() {
+	                var o = this;
+	                return function() {
+	                    o.setPos();
+	                }
+	            },
+	            resizeEvent: function() {
+	                var o = this;
+	                return function() {
+	                    setTimeout(function() {
+	                        o.sts.target.css(o.sts.currentCss)
+	                        o.initBasePos();
+	                        o.setPos()
+	                    }, 1)
+	                }
+	            }
+	        })
+	    })(jQuery)
+
+	    function Pop(title, url, intro) {
+	        this.title = title;
+	        this.url = url;
+	        this.intro = intro;
+	        this.apearTime = 1000;
+	        this.hideTime = 500;
+	        this.delay = 10000;
+	        //添加信息
+	        this.addInfo();
+	        //显示
+	        this.showDiv();
+	        //关闭
+	        this.closeDiv();
+	    }
+	    Pop.prototype = {
+	        addInfo: function() {
+	            $("#popTitle a").attr('href', this.url).html(this.title);
+	            $("#popIntro").html(this.intro);
+	            $("#popMore a").attr('href', this.url);
+	        },
+	        showDiv: function(time) {
+	            if (!($.browser.msie && ($.browser.version == "6.0") && !$.support.style)) {
+	                $('#pop').slideDown(this.apearTime).delay(this.delay).fadeOut(400);;
+	            } else { //调用jquery.fixed.js,解决ie6不能用fixed
+	                $('#pop').show();
+	                jQuery(function($j) {
+	                    $j('#pop').positionFixed()
+	                })
+	            }
+	        },
+	        closeDiv: function() {
+	            $("#popClose").click(function() {
+	                $('#pop').hide();
+	            });
+	        }
+	    }
+	    window.onload = function() {
+	        new Pop();
+	    }
+	    //公共js引入
+	    layui.config({
+	        version: "<?php echo VERSION;?>",
+	        base: '/templates/hibiscus/js/'
+	    }).use('common');
+	    layui.use('element', function() {
+	        var element = layui.element;
+	    });
+	    // 发布提示
+	    layui.define(['laypage', 'layer', 'jquery'], function(exports) {
+	        var $ = layui.jquery;
+	        $(".notice").on("click", function(event) {
+	            layer.open({
+	                type: 1,
+	                title: false, //不显示标题栏
+	                closeBtn: true,
+	                area: '300px;',
+	                shade: 0.8,
+	                id: 'LAY_layuipro', //设定一个id，防止重复弹出
+	                btn: ['我已知晓(￣▽￣)"'],
+	                btnAlign: 'c',
+	                moveType: 1, //拖拽模式，0或者1
+	                content: ' <div style="padding: 20px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">公告： <br> <br> 由于近期平台接到个别原创作者反馈，现存在某些发布者将非本人的原创作品发布到汇智园平台，故暂停发布功能以及下架部分作品，同时逐一邮件联系发布者确认资料原创性，资料原创性审核通过后即可主页上线， 请各位作者静候此模块功能更新上线<br> <br> 汇智园为作品商家和设计需求者提供最好的服务  <br> <br> 谢谢您们的支持^ _ ^！  </div>',
+	            });
+	        })
+	    });
+	</script>
+	<!--统计代码-->
+	<?php if(isset($config['tongji']) AND strlen($config['tongji'])>0):?>
+	<?php echo $config['tongji'];?>
+	<?php endif;?>
+	</body>
+	<style>
+	    .qqserver{
+	          top:65%!important;	
+	    }
+	    @media (max-width: 768px) {
+	        .fly-footer {
+	            background-color: white !important;
+	        }
+
+	        .footer-icon,
+	        .footer-column-t {
+	            display: none !important;
+	        }
+
+	        .copyright {
+	            border-top: 1px solid #f8f8f8 !important;
+	            font-size: 12px;
+	            padding: 12px !important;
+	        }
+	    }
+
+	    .footer-icon {
+	        margin-top: 20px;
+	        width: 100%;
+	        background: #f8f8f8;
+	        padding: 35px 0;
+	        height: 80px;
+	        text-align: center;
+	        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+	        border-bottom: 1px solid #e2e2e2;
+	    }
+
+	    .footer-icon .w {
+	        height: 80px;
+	    }
+
+	    .w {
+	        margin: 0 auto;
+	        width: 1210px;
+	    }
+
+	    .footer-icon .icon-map {
+	        display: inline-block;
+	        width: 170px;
+	    }
+
+	    .footer-icon .icon-map .icon-bg.i1 {
+	        background-position: 0 -250px;
+	    }
+
+	    .footer-icon .icon-map .icon-bg.i3 {
+	        background-position: 0 -350px;
+	    }
+
+	    .footer-icon .icon-map .icon-bg.i4 {
+	        background-position: 0 -300px;
+	    }
+
+	    .footer-icon .icon-map .icon-bg.i5 {
+	        background-position: 0 -50px;
+	    }
+
+	    .footer-icon .icon-map .icon-bg.i6 {
+	        background-position: 0 0;
+	    }
+
+	    .footer-icon .icon-map .icon-bg.i7 {
+	        background-position: 0 -150px;
+	    }
+
+	    .footer-icon .icon-map .icon-bg.i8 {
+	        background-position: 0 -100px;
+	    }
+
+	    .footer-icon .icon-map .icon-title {
+	        font-size: 14px;
+	        color: #000;
+	        text-align: center;
+	        margin-top: 10px;
+	    }
+
+	    .footer-icon .icon-map .icon-bg {
+	        width: 50px;
+	        height: 50px;
+	        margin: 0 auto;
+	        background: url(/res/images/site.png) no-repeat;
+	    }
+
+	    .fly-footer {
+	        background: #f8f8f8;
+	        margin-top: 20px;
+	        padding: 20px;
+	    }
+
+	    .footer-img {
+	        margin-top: 10px;
+	    }
+
+	    #pop {
+	        width: 330px;
+	        height: 270px;
+	        font-size: 12px;
+	        position: fixed;
+	        left: 0;
+	        bottom: 0;
+	        z-index: 9999;
+	    }
+
+	    #popHead #popClose {
+	        position: absolute;
+	        width: 25px;
+	        height: 25px;
+	        right: 1px;
+	        top: 4px;
+	        cursor: pointer;
+	    }
+
+	    #popContent {
+	        padding: 5px 10px;
+	    }
+
+	    .footer-column-t {
+	        display: flex;
+	        /* -webkit-box-pack: center; */
+	        -ms-flex-pack: center;
+	        justify-content: center;
+	    }
+
+	    .footer-column-t>li:hover {
+	        color: green;
+	    }
+
+	    .footer-column-t li+li a {
+	        border-left: 1px solid #e2e2e2;
+	    }
+
+	    .copyright {
+	        padding: 10px 0;
+	        color: #737573;
+	        text-align: center;
+	        background-color: white;
+	    }
+	</style>
+
+	</html>
